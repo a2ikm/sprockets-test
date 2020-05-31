@@ -1,5 +1,6 @@
 def build(version)
-  sh "BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile bundle exec sprockets --include assets/javascripts --output builds/#{version} assets/javascripts/application.coffee assets/javascripts/hello.jst.eco"
+  #sh "BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile bundle exec sprockets --include assets/javascripts --output builds/#{version} assets/javascripts/hello_view.coffee assets/javascripts/hello.jst.eco"
+  sh "BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile bundle exec sprockets --include assets/javascripts --output builds/#{version} assets/javascripts/hello_view.js assets/javascripts/hello.jst.eco"
 end
 
 task :default => :all
