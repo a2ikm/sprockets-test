@@ -16,7 +16,11 @@ def build(version, name, *paths)
   #  FileUtils.mkdir_p("caches/#{name}/#{version}")
   #end
 
-  args += paths.map { |path| File.join("assets/javascripts", path) }
+  if version == "4-0"
+    args += paths
+  else
+    args += paths.map { |path| File.join("assets/javascripts", path) }
+  end
 
   sh(args.join(" "))
 end
