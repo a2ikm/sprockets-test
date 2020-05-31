@@ -1,3 +1,3 @@
-//= require ./view
+//= require view_template
 
-var html = JST["view"]({ name: "John Smith" });
+var html = JST["view_template"]({ name: "John Smith" });

@@ -1,3 +1,3 @@
-#= require ./view
+#= require view_template
 
-html = JST["view"]({ name: "John Smith" })
+html = JST["view_template"]({ name: "John Smith" })
