@@ -71,8 +71,5 @@ namespace :v40 do
 end
 
 task :clean do
-  if File.exist?("builds")
-    sh "rm -rf builds"
-    sh "git checkout builds"
-  end
+  sh "rm -rf builds"
 end
