@@ -1,4 +1,8 @@
+require "fileutils"
+
 def build(version, name, *paths)
+  FileUtils.mkdir_p("builds/#{name}/#{version}")
+
   args = %W(
     BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile
     bundle exec sprockets
@@ -6,9 +10,10 @@ def build(version, name, *paths)
       --output builds/#{name}/#{version}
   )
 
-  args += %W(
-    --cache caches/#{name}/#{version}
-  ) if version == "4-0"
+  if version == "4-0"
+    args += %W(--cache caches/#{name}/#{version})
+    FileUtils.mkdir_p("caches/#{name}/#{version}")
+  end
 
   args += paths.map { |path| File.join("assets/javascripts", path) }
 
@@ -16,6 +21,7 @@ def build(version, name, *paths)
 end
 
 task :default => %w(
+  clean
   v37:single:js
   v37:single:coffee
   v37:view:js
@@ -65,6 +71,8 @@ namespace :v40 do
 end
 
 task :clean do
-  sh "rm -rf builds"
-  sh "git checkout builds"
+  if File.exist?("builds")
+    sh "rm -rf builds"
+    sh "git checkout builds"
+  end
 end
