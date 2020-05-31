@@ -5,7 +5,7 @@ def build(version, name, *paths)
 
   args = %W(
     BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile
-    bundle exec sprockets
+    bundle exec ruby bin/sprockets_#{version}
       --include assets/javascripts
       --output builds/#{name}/#{version}
   )
