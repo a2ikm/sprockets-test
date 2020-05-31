@@ -1,0 +1,35 @@
+GIT
+  remote: https://github.com/a2ikm/sprockets.git
+  revision: 749d641da4b62f6f472f727ec057dc3ae605307c
+  branch: v3.7.2-verbose
+  specs:
+    sprockets (3.7.2)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
+    concurrent-ruby (1.1.6)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    execjs (2.7.0)
+    rack (2.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  coffee-script
+  eco
+  sprockets (~> 3.7)!
+
+BUNDLED WITH
+   2.1.4
