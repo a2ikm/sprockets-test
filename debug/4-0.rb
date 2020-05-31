@@ -7,7 +7,13 @@ module Sprockets
       parsed_accepts.each do |type, q|
         mod_q = q * 0.8
         root_type = find_root_accept(type)
-        root_accepts[root_type] = root_accepts.key?(root_type) ? [mod_q, root_accepts[root_type]].max : mod_q
+        root_accepts[root_type] = if type == root_type
+                                    q
+                                  elsif root_accepts.key?(root_type)
+                                    [mod_q, root_accepts[root_type]].max
+                                  else
+                                    mod_q
+                                  end
       end
 
       accepts = {}
