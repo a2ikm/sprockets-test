@@ -8,6 +8,7 @@ def build(version, name, *paths)
     bundle exec ruby bin/sprockets_#{version}
       --include assets/javascripts
       --output builds/#{name}/#{version}
+      --require ./init.rb
   )
 
   if version == "4-0"
