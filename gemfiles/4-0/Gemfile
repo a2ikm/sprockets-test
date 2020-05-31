@@ -7,3 +7,4 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gem "sprockets", "~> 4.0",  git: "https://github.com/a2ikm/sprockets.git",  branch: "v4.0.0-verbose"
 gem "coffee-script"
 gem "eco"
+gem "pry-byebug"

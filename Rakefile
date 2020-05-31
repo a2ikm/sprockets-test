@@ -73,3 +73,16 @@ end
 task :clean do
   sh "rm -rf builds"
 end
+
+namespace :bundle do
+  task :install do
+    %w(3-7 4-0).each do |version|
+      sh "BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile bundle install"
+    end
+  end
+  task :update do
+    %w(3-7 4-0).each do |version|
+      sh "BUNDLE_GEMFILE=gemfiles/#{version}/Gemfile bundle update"
+    end
+  end
+end
