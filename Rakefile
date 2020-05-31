@@ -11,10 +11,10 @@ def build(version, name, *paths)
       --require ./init.rb
   )
 
-  if version == "4-0"
-    args += %W(--cache caches/#{name}/#{version})
-    FileUtils.mkdir_p("caches/#{name}/#{version}")
-  end
+  #if version == "4-0"
+  #  args += %W(--cache caches/#{name}/#{version})
+  #  FileUtils.mkdir_p("caches/#{name}/#{version}")
+  #end
 
   args += paths.map { |path| File.join("assets/javascripts", path) }
 
