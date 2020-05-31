@@ -35,6 +35,7 @@ task :default => %w(
   v40:single:coffee
   v40:view:js
   v40:view:coffee
+  tree
 )
 
 namespace :v37 do
@@ -77,6 +78,10 @@ end
 
 task :clean do
   sh "rm -rf builds"
+end
+
+task :tree do
+  sh "tree builds"
 end
 
 namespace :bundle do
