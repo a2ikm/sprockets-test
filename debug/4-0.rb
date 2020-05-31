@@ -25,8 +25,8 @@ module Sprockets
 
     def find_root_accept(type)
       config[:transformers][type].keys.find do |dst|
-        !config[:transformers].key?(dst) || config[:transformers][dst].empty?
-      end
+        !config[:transformers].key?(dst) &&  config[:transformers][dst].empty?
+      end || type
     end
   end
 end
