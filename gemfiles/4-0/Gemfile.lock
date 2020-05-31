@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/a2ikm/sprockets.git
-  revision: 3f8850d098c360acd8568777ffaed3870a56b1e7
+  revision: 121b0110af456b2174b0ee2300a30f95739b7f7a
   branch: v4.0.0-verbose
   specs:
     sprockets (4.0.0)
