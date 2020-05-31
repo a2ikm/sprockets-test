@@ -1,5 +1,26 @@
 module Sprockets
   class Manifest
+    def find(*args)
+      unless environment
+        raise Error, "manifest requires environment for compilation"
+      end
+
+      return to_enum(__method__, *args) unless block_given?
+
+      environment = self.environment.cached
+      promises = args.flatten.map do |path|
+        Concurrent::Promise.execute(executor: executor) do
+          #binding.pry
+          environment.find_all_linked_assets(path) do |asset|
+            yield asset
+          end
+        end
+      end
+      promises.each(&:wait!)
+
+      nil
+    end
+
     def compile(*args)
       unless environment
         raise Error, "manifest requires environment for compilation"
